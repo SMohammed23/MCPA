@@ -14,7 +14,7 @@ F=1; %Force
 m=1; %mass
 
 dt=1; 
-iter=1000;s
+iter=1000;
 
 np=1;
 v0= zeros(np,1); 
@@ -42,7 +42,7 @@ for i = 2:iter
     
     xlabel('time')
     ylabel('v')
-    title(['Average Velocity of the Electron:' num2str(AvgVel(i))]) %plot  depicting average velocity of the electon 
+    title(['Average Velocity of the Electron:' num2str(AvgVel(i))])  %plot  depicting average velocity of the electon 
     subplot(3,1,2),plot(x0(1,:),v0(1,:),'r-'); 
     hold on 
     subplot(3,1,2),plot(x0(1,:),AvgVel,'g*'); 
@@ -54,6 +54,15 @@ for i = 2:iter
     plot(t,x0,'-'); 
     xlabel('Time')
     ylabel('x')
+    
+    %Calculation of drift velocity 
+    n=8.342*10^28;
+    q=-1.60*10^-19;
+    A=3.310*10^-6;
+    I = 20.0 ;
+    disp('drift velocity')
+    vd=I/n*q*A;
+    vd
     
     pause(0.01)
     
